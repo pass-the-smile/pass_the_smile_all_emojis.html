@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ff8a00">
+
+  <title>مرّر الابتسامة</title>
+
+  <meta property="og:title" content="مرّر الابتسامة 😊">
+  <meta property="og:description" content="اختر إيموجي، واكتب رسالة تعبّر عن تقديرك لأحد زملائك، ثم مرّر الابتسامة.">
+  <meta property="og:image" content="https://pass-the-smile.github.io/pass_the_smile_all_emojis.html/preview.png">
+  <meta property="og:image:alt" content="مرّر الابتسامة">
+  <meta property="og:url" content="https://pass-the-smile.github.io/pass_the_smile_all_emojis.html/">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="مرّر الابتسامة 😊">
+  <meta name="twitter:description" content="اختر إيموجي، واكتب رسالة تعبّر عن تقديرك لأحد زملائك، ثم مرّر الابتسامة.">
+  <meta name="twitter:image" content="https://pass-the-smile.github.io/pass_the_smile_all_emojis.html/preview.png">
+
+  <style>
+    :root{
+      --orange:#ff8500;
+      --yellow:#ffd43b;
+      --teal:#18b9b0;
+      --ink:#23313b;
+      --muted:#6d7880;
+      --paper:#ffffff;
+      --soft:#fff8e7;
+      --line:#ece7df;
+      --shadow:0 18px 50px rgba(35,49,59,.13);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:Tahoma,Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(255,212,59,.34), transparent 28%),
+        radial-gradient(circle at 92% 14%, rgba(24,185,176,.22), transparent 26%),
+        linear-gradient(180deg,#fffdf8 0%,#fff8e7 100%);
+    }
+    button,input,textarea{font:inherit}
+    .app{max-width:760px;margin:auto;padding:22px 16px 42px}
+    .hero{
+      padding:26px 22px;
+      text-align:center;
+      background:linear-gradient(135deg,var(--orange),#ff9e22);
+      color:white;
+      border-radius:26px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before,.hero:after{
+      content:"";
+      position:absolute;
+      width:130px;height:130px;border-radius:50%;
+      background:rgba(255,255,255,.12)
+    }
+    .hero:before{top:-60px;right:-35px}
+    .hero:after{bottom:-75px;left:-25px}
+    .hero h1{margin:0 0 9px;font-size:clamp(28px,6vw,44px)}
+    .hero p{margin:0;line-height:1.9;font-size:16px}
+    .panel{
+      margin-top:18px;
+      background:rgba(255,255,255,.95);
+      border:1px solid rgba(255,255,255,.7);
+      border-radius:26px;
+      padding:20px;
+      box-shadow:var(--shadow);
+    }
+    .label{display:block;font-weight:700;margin:0 0 9px}
+    .chosen{
+      display:flex;align-items:center;gap:12px;
+      padding:13px 14px;background:var(--soft);
+      border:1px solid #ffe3ae;border-radius:17px;margin-bottom:16px
+    }
+    .chosen .emoji{font-size:38px;line-height:1}
+    .chosen small{color:var(--muted)}
+    .search{
+      width:100%;padding:13px 14px;border:1px solid var(--line);
+      border-radius:14px;outline:none;margin-bottom:10px;background:white
+    }
+    .search:focus,input:focus,textarea:focus{
+      border-color:var(--teal);
+      box-shadow:0 0 0 3px rgba(24,185,176,.12)
+    }
+    .emoji-grid{
+      display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));
+      gap:7px;max-height:230px;overflow:auto;padding:6px 2px 10px
+    }
+    .emoji-btn{
+      border:1px solid transparent;background:#fafafa;border-radius:12px;
+      padding:8px;font-size:25px;cursor:pointer;transition:.15s
+    }
+    .emoji-btn:hover,.emoji-btn.active{
+      transform:translateY(-2px);
+      background:#fff3da;
+      border-color:#ffd28a
+    }
+    .field{margin-top:16px}
+    input,textarea{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px;
+      background:white;
+      outline:none
+    }
+    textarea{
+      min-height:118px;
+      resize:vertical;
+      line-height:1.8
+    }
+    textarea::placeholder{color:#a6a6a6}
+    .counter{
+      text-align:left;
+      color:var(--muted);
+      font-size:12px;
+      margin-top:5px
+    }
+    .primary{
+      width:100%;
+      border:0;
+      border-radius:16px;
+      padding:15px 18px;
+      margin-top:18px;
+      background:linear-gradient(135deg,var(--teal),#109d96);
+      color:white;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:0 10px 24px rgba(24,185,176,.25)
+    }
+    .primary:hover{filter:brightness(.98);transform:translateY(-1px)}
+    .preview{display:none;margin-top:18px}
+    .preview.show{display:block}
+    .card{
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(145deg,#fff 0%,#fff9ec 100%);
+      border:1px solid #ffe2ad;
+      border-radius:26px;
+      padding:28px 22px;
+      text-align:center;
+      box-shadow:var(--shadow)
+    }
+    .card:before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto 0;
+      height:9px;
+      background:linear-gradient(90deg,var(--orange),var(--yellow),var(--teal))
+    }
+    .card .big{font-size:66px;margin:8px 0}
+    .card h2{margin:0 0 10px;color:var(--orange)}
+    .card .to{font-weight:700;font-size:18px;margin-bottom:14px}
+    .card .msg{line-height:2;font-size:17px;white-space:pre-wrap}
+    .signature{margin-top:18px;color:var(--muted);font-size:13px}
+    .whatsapp{
+      display:block;
+      text-decoration:none;
+      text-align:center;
+      margin-top:14px;
+      padding:15px;
+      border-radius:16px;
+      background:#25D366;
+      color:white;
+      font-weight:700
+    }
+    .note{
+      text-align:center;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.8;
+      margin-top:12px
+    }
+    .toast{
+      position:fixed;
+      left:50%;
+      bottom:24px;
+      transform:translateX(-50%) translateY(20px);
+      background:#23313b;
+      color:white;
+      padding:11px 16px;
+      border-radius:999px;
+      opacity:0;
+      pointer-events:none;
+      transition:.25s;
+      z-index:10
+    }
+    .toast.show{
+      opacity:1;
+      transform:translateX(-50%) translateY(0)
+    }
+    @media (max-width:520px){
+      .app{padding:12px 10px 28px}
+      .hero,.panel{border-radius:21px}
+      .panel{padding:15px}
+      .emoji-grid{grid-template-columns:repeat(7,1fr)}
+      .emoji-btn{font-size:23px;padding:7px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <header class="hero">
+      <h1>مرّر الابتسامة 😊</h1>
+      <p>اختر إيموجي، واكتب رسالة تعبّر عن تقديرك لأحد زملائك، ثم مرّر الابتسامة.</p>
+    </header>
+
+    <main class="panel">
+      <div class="chosen">
+        <div id="selectedEmoji" class="emoji">😊</div>
+        <div>
+          <strong>الإيموجي المختار</strong><br>
+          <small>اضغط على أي إيموجي لتغييره</small>
+        </div>
+      </div>
+
+      <label class="label" for="emojiSearch">ابحث عن إيموجي</label>
+      <input id="emojiSearch" class="search" type="search"
+             placeholder="مثال: قلب، شكر، نجمة، ابتسامة">
+
+      <div id="emojiGrid" class="emoji-grid" aria-label="قائمة الإيموجي"></div>
+
+      <div class="field">
+        <label class="label" for="recipient">اسم الزميل أو الزميلة</label>
+        <input id="recipient" maxlength="60" placeholder="اكتب الاسم هنا">
+      </div>
+
+      <div class="field">
+        <label class="label" for="message">رسالة التقدير</label>
+        <textarea id="message" maxlength="280"
+          placeholder="مثال: وجودك معنا جميل، وشكرًا لكل ما تقدمه. 🌷"></textarea>
+        <div id="counter" class="counter">0/280</div>
+      </div>
+
+      <button id="previewBtn" class="primary" type="button">
+        ✨ مرّر الابتسامة
+      </button>
+
+      <section id="preview" class="preview" aria-live="polite">
+        <div class="card">
+          <div id="cardEmoji" class="big">😊</div>
+          <h2>مرّر الابتسامة</h2>
+          <div id="cardTo" class="to"></div>
+          <div id="cardMessage" class="msg"></div>
+          <div class="signature">رسالة تقدير تصنع يومًا أجمل ✨</div>
+        </div>
+
+        <a id="waBtn" class="whatsapp" target="_blank" rel="noopener">
+          إرسال عبر واتساب
+        </a>
+
+        <div class="note">
+          يفتح زر واتساب على الآيفون والأندرويد والكمبيوتر.
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+<script>
+const emojiItems = [
+  ["😊","ابتسامة سعيد فرح"],["😍","حب إعجاب"],["🥰","محبة تقدير"],["😂","ضحك فرح"],
+  ["😄","سعادة"],["😁","ابتسامة"],["🤩","إعجاب نجمة"],["😇","طيبة"],["🙂","ابتسامة"],
+  ["😉","مرح"],["🤗","عناق دعم"],["🥳","احتفال"],["❤️","قلب حب"],["🧡","قلب برتقالي"],
+  ["💛","قلب أصفر"],["💚","قلب أخضر"],["💙","قلب أزرق"],["💜","قلب بنفسجي"],
+  ["🤍","قلب أبيض"],["💕","قلوب"],["💖","قلب لامع"],["💐","ورد باقة"],["🌷","وردة"],
+  ["🌹","ورد"],["🌸","زهرة"],["🌼","زهرة"],["🌻","دوار الشمس"],["✨","لمعة"],
+  ["⭐","نجمة"],["🌟","نجمة لامعة"],["👏","تصفيق"],["🙌","احتفال"],["👍","ممتاز إعجاب"],
+  ["👌","تمام"],["🤝","تعاون"],["🙏","شكر امتنان"],["💪","قوة دعم"],["🏆","إنجاز"],
+  ["🥇","تميز"],["🎉","احتفال"],["🎊","تهنئة"],["🎁","هدية"],["☕","قهوة"],
+  ["🍫","شوكولاتة"],["🍰","كيك"],["🫶","محبة دعم"],["💡","إبداع فكرة"],["🚀","نجاح انطلاق"],
+  ["🌈","تفاؤل"],["☀️","إشراق"],["🦋","جمال"],["💎","قيمة تميز"],["🌺","زهرة"],
+  ["🍀","حظ جميل"]
+];
+
+let selected = "😊";
+
+const grid = document.getElementById("emojiGrid");
+const selectedEmoji = document.getElementById("selectedEmoji");
+const search = document.getElementById("emojiSearch");
+const message = document.getElementById("message");
+const counter = document.getElementById("counter");
+
+function renderEmojis(term=""){
+  const q = term.trim().toLowerCase();
+  grid.innerHTML = "";
+
+  emojiItems
+    .filter(([emoji, keywords]) => !q || emoji.includes(q) || keywords.includes(q))
+    .forEach(([emoji]) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "emoji-btn" + (emoji === selected ? " active" : "");
+      b.textContent = emoji;
+      b.setAttribute("aria-label","اختيار " + emoji);
+
+      b.onclick = () => {
+        selected = emoji;
+        selectedEmoji.textContent = emoji;
+        renderEmojis(search.value);
+      };
+
+      grid.appendChild(b);
+    });
+}
+
+renderEmojis();
+
+search.addEventListener("input", e => renderEmojis(e.target.value));
+
+message.addEventListener("input", () => {
+  counter.textContent = message.value.length + "/280";
+});
+
+function showToast(text){
+  const t = document.getElementById("toast");
+  t.textContent = text;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2200);
+}
+
+document.getElementById("previewBtn").addEventListener("click", () => {
+  const recipient = document.getElementById("recipient").value.trim();
+  const msg = message.value.trim();
+
+  if(!recipient){
+    showToast("اكتب اسم الزميل أو الزميلة");
+    return;
+  }
+
+  if(!msg){
+    showToast("اكتب رسالة التقدير");
+    return;
+  }
+
+  document.getElementById("cardEmoji").textContent = selected;
+  document.getElementById("cardTo").textContent = "إلى " + recipient;
+  document.getElementById("cardMessage").textContent = msg;
+
+  const text =
+    `مرّر الابتسامة ${selected}\n\n` +
+    `إلى ${recipient}\n` +
+    `${msg}\n\n` +
+    `رسالة تقدير تصنع يومًا أجمل ✨`;
+
+  document.getElementById("waBtn").href =
+    "https://wa.me/?text=" + encodeURIComponent(text);
+
+  const preview = document.getElementById("preview");
+  preview.classList.add("show");
+  preview.scrollIntoView({behavior:"smooth",block:"start"});
+});
+</script>
+</body>
+</html>
