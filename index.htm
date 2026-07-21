@@ -1,0 +1,289 @@
+[index (3).html](https://github.com/user-attachments/files/30216835/index.3.html)
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ff8a00">
+  <title>مرّر الابتسامة</title>
+
+  <meta property="og:title" content="مرّر الابتسامة 😊">
+  <meta property="og:description" content="اختر إيموجي، واكتب رسالة تعبّر عن تقديرك لأحد زملائك، ثم مرّر الابتسامة.">
+  <meta property="og:image" content="https://pass-the-smile.github.io/pass_the_smile_all_emojis.html/preview.png">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root{
+      --orange:#ff8500;--yellow:#ffd43b;--teal:#18b9b0;--ink:#23313b;
+      --muted:#6d7880;--soft:#fff8e7;--line:#ece7df;
+      --shadow:0 18px 50px rgba(35,49,59,.13)
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;min-height:100vh;font-family:Tahoma,Arial,sans-serif;color:var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%,rgba(255,212,59,.34),transparent 28%),
+        radial-gradient(circle at 92% 14%,rgba(24,185,176,.22),transparent 26%),
+        linear-gradient(180deg,#fffdf8 0%,#fff8e7 100%)
+    }
+    button,input,textarea{font:inherit}
+    .app{max-width:760px;margin:auto;padding:22px 16px 42px}
+    .hero{
+      padding:26px 22px;text-align:center;background:linear-gradient(135deg,var(--orange),#ff9e22);
+      color:#fff;border-radius:26px;box-shadow:var(--shadow);position:relative;overflow:hidden
+    }
+    .hero:before,.hero:after{
+      content:"";position:absolute;width:130px;height:130px;border-radius:50%;background:rgba(255,255,255,.12)
+    }
+    .hero:before{top:-60px;right:-35px}.hero:after{bottom:-75px;left:-25px}
+    .hero h1{margin:0 0 9px;font-size:clamp(28px,6vw,44px)}
+    .hero p{margin:0;line-height:1.9;font-size:16px}
+    .panel{
+      margin-top:18px;background:rgba(255,255,255,.96);border-radius:26px;padding:20px;
+      box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.8)
+    }
+    .label{display:block;font-weight:700;margin:0 0 9px}
+    .chosen{display:flex;align-items:center;gap:12px;padding:13px 14px;background:var(--soft);border:1px solid #ffe3ae;border-radius:17px;margin-bottom:16px}
+    .chosen .emoji{font-size:38px}.chosen small{color:var(--muted)}
+    .search,input,textarea{
+      width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:14px;outline:none;background:#fff
+    }
+    .search:focus,input:focus,textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(24,185,176,.12)}
+    .emoji-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:7px;max-height:220px;overflow:auto;padding:8px 2px}
+    .emoji-btn{border:1px solid transparent;background:#fafafa;border-radius:12px;padding:8px;font-size:25px;cursor:pointer}
+    .emoji-btn.active,.emoji-btn:hover{background:#fff3da;border-color:#ffd28a;transform:translateY(-1px)}
+    .field{margin-top:16px}
+    textarea{min-height:118px;resize:vertical;line-height:1.8}
+    textarea::placeholder,input::placeholder{color:#aaa}
+    .counter{text-align:left;color:var(--muted);font-size:12px;margin-top:5px}
+    .anon{display:flex;align-items:center;gap:8px;margin-top:10px;color:var(--muted);font-size:14px}
+    .anon input{width:auto}
+    .primary,.secondary{
+      width:100%;border:0;border-radius:16px;padding:15px 18px;margin-top:16px;color:#fff;font-weight:700;cursor:pointer
+    }
+    .primary{background:linear-gradient(135deg,var(--teal),#109d96);box-shadow:0 10px 24px rgba(24,185,176,.25)}
+    .secondary{background:linear-gradient(135deg,var(--orange),#ff9f2a)}
+    .share{background:#25D366}.whatsapp{background:#25D366}
+    .download{background:#34495e}
+    .preview{display:none;margin-top:20px}
+    .preview.show{display:block}
+    .card-wrap{display:flex;justify-content:center}
+    #card{
+      width:100%;max-width:620px;min-height:520px;padding:54px 44px 40px;border-radius:28px;
+      background:
+        radial-gradient(circle at 12% 15%,rgba(255,212,59,.28),transparent 22%),
+        radial-gradient(circle at 88% 85%,rgba(24,185,176,.20),transparent 24%),
+        linear-gradient(145deg,#fff 0%,#fff9ec 100%);
+      border:2px solid #ffe0a3;box-shadow:var(--shadow);position:relative;overflow:hidden;text-align:center
+    }
+    #card:before{content:"";position:absolute;inset:0 0 auto;height:12px;background:linear-gradient(90deg,var(--orange),var(--yellow),var(--teal))}
+    #card:after{content:"😊";position:absolute;left:-10px;bottom:-25px;font-size:120px;opacity:.07;transform:rotate(-12deg)}
+    .brand{font-weight:800;color:var(--orange);font-size:34px;margin-bottom:18px}
+    .card-emoji{font-size:76px;line-height:1;margin:6px 0 20px}
+    .route{font-size:18px;line-height:2;margin:8px auto 22px;max-width:500px}
+    .route strong{color:var(--teal)}
+    .msg{font-size:20px;line-height:2.05;white-space:pre-wrap;margin:12px auto;max-width:520px}
+    .signature{margin-top:28px;color:var(--muted);font-size:14px}
+    .actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .note{text-align:center;color:var(--muted);font-size:12px;line-height:1.8;margin-top:12px}
+    .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#23313b;color:white;padding:11px 16px;border-radius:999px;opacity:0;pointer-events:none;transition:.25s;z-index:20}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    @media(max-width:520px){
+      .app{padding:12px 10px 28px}.hero,.panel{border-radius:21px}.panel{padding:15px}
+      .emoji-grid{grid-template-columns:repeat(7,1fr)}.emoji-btn{font-size:23px;padding:7px}
+      #card{padding:44px 22px 34px;min-height:480px}.brand{font-size:29px}.msg{font-size:18px}
+      .actions{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <h1>مرّر الابتسامة 😊</h1>
+    <p>اختر إيموجي، واكتب رسالة تعبّر عن تقديرك لأحد زملائك، ثم مرّر الابتسامة.</p>
+  </header>
+
+  <main class="panel">
+    <div id="formSection">
+    <div class="chosen">
+      <div id="selectedEmoji" class="emoji">😊</div>
+      <div><strong>الإيموجي المختار</strong><br><small>اضغط على أي إيموجي لتغييره</small></div>
+    </div>
+
+    <label class="label" for="emojiSearch">ابحث عن إيموجي</label>
+    <input id="emojiSearch" class="search" type="search" placeholder="مثال: قلب، شكر، نجمة، ابتسامة">
+    <div id="emojiGrid" class="emoji-grid"></div>
+
+    <div class="field">
+      <label class="label" for="sender">من</label>
+      <input id="sender" maxlength="60" placeholder="اكتب اسم المرسل">
+      <label class="anon"><input id="anonymous" type="checkbox"> إرسال بدون اسم</label>
+    </div>
+
+    <div class="field">
+      <label class="label" for="recipient">إلى</label>
+      <input id="recipient" maxlength="60" placeholder="اكتب اسم الزميل أو الزميلة">
+    </div>
+
+    <div class="field">
+      <label class="label" for="message">رسالة التقدير</label>
+      <textarea id="message" maxlength="280" placeholder="مثال: وجودك معنا جميل، وشكرًا لكل ما تقدمه. 🌷"></textarea>
+      <div id="counter" class="counter">0/280</div>
+    </div>
+
+    <button id="createBtn" class="primary" type="button">✨ إنشاء البطاقة</button>
+    </div>
+
+    <section id="preview" class="preview">
+      <div class="card-wrap">
+        <div id="card">
+          <div class="brand">مرّر الابتسامة</div>
+          <div id="cardEmoji" class="card-emoji">😊</div>
+          <div class="route">
+            <div><strong>من:</strong> <span id="cardFrom"></span></div>
+            <div><strong>إلى:</strong> <span id="cardTo"></span></div>
+          </div>
+          <div id="cardMessage" class="msg"></div>
+          <div class="signature">رسالة تقدير تصنع يومًا أجمل ✨</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="shareBtn" class="secondary share" type="button">🟢 إرسال البطاقة عبر واتساب</button>
+        <button id="downloadBtn" class="secondary download" type="button">🖼️ حفظ البطاقة كصورة</button>
+      </div>
+      <div class="note">بعد الضغط على زر الإرسال، اختاري واتساب من قائمة المشاركة. إذا لم تظهر المشاركة المباشرة، احفظي الصورة ثم أرسليها عبر واتساب.</div>
+        <button id="newCardBtn" class="secondary" type="button">↩️ إنشاء بطاقة جديدة</button>
+    </section>
+  </main>
+</div>
+
+<div id="toast" class="toast"></div>
+<script>
+if(location.protocol === "file:"){
+  window.addEventListener("DOMContentLoaded",function(){
+    setTimeout(function(){
+      const t=document.getElementById("toast");
+      if(t){t.textContent="للتشغيل الكامل افتحي الصفحة من رابط الموقع وليس كملف داخل واتساب";t.classList.add("show");setTimeout(()=>t.classList.remove("show"),6000)}
+    },500);
+  });
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script>
+const emojiItems=[
+["😊","ابتسامة سعيد فرح"],["😍","حب إعجاب"],["🥰","محبة تقدير"],["😂","ضحك فرح"],["😄","سعادة"],
+["😁","ابتسامة"],["🤩","إعجاب نجمة"],["😇","طيبة"],["🙂","ابتسامة"],["😉","مرح"],["🤗","عناق دعم"],
+["🥳","احتفال"],["❤️","قلب حب"],["🧡","قلب برتقالي"],["💛","قلب أصفر"],["💚","قلب أخضر"],
+["💙","قلب أزرق"],["💜","قلب بنفسجي"],["🤍","قلب أبيض"],["💕","قلوب"],["💖","قلب لامع"],
+["💐","ورد باقة"],["🌷","وردة"],["🌹","ورد"],["🌸","زهرة"],["🌼","زهرة"],["🌻","دوار الشمس"],
+["✨","لمعة"],["⭐","نجمة"],["🌟","نجمة لامعة"],["👏","تصفيق"],["🙌","احتفال"],["👍","ممتاز إعجاب"],
+["👌","تمام"],["🤝","تعاون"],["🙏","شكر امتنان"],["💪","قوة دعم"],["🏆","إنجاز"],["🥇","تميز"],
+["🎉","احتفال"],["🎊","تهنئة"],["🎁","هدية"],["☕","قهوة"],["🍫","شوكولاتة"],["🍰","كيك"],
+["🫶","محبة دعم"],["💡","إبداع فكرة"],["🚀","نجاح انطلاق"],["🌈","تفاؤل"],["☀️","إشراق"],
+["🦋","جمال"],["💎","قيمة تميز"],["🌺","زهرة"],["🍀","حظ جميل"]
+];
+
+let selected="😊";
+let cardBlob=null;
+const grid=document.getElementById("emojiGrid");
+const selectedEmoji=document.getElementById("selectedEmoji");
+const search=document.getElementById("emojiSearch");
+const message=document.getElementById("message");
+const counter=document.getElementById("counter");
+const sender=document.getElementById("sender");
+const anonymous=document.getElementById("anonymous");
+
+function renderEmojis(term=""){
+  const q=term.trim().toLowerCase();
+  grid.innerHTML="";
+  emojiItems.filter(([e,k])=>!q||e.includes(q)||k.includes(q)).forEach(([emoji])=>{
+    const b=document.createElement("button");
+    b.type="button";b.className="emoji-btn"+(emoji===selected?" active":"");b.textContent=emoji;
+    b.onclick=()=>{selected=emoji;selectedEmoji.textContent=emoji;renderEmojis(search.value)};
+    grid.appendChild(b);
+  });
+}
+renderEmojis();
+search.addEventListener("input",e=>renderEmojis(e.target.value));
+message.addEventListener("input",()=>counter.textContent=message.value.length+"/280");
+anonymous.addEventListener("change",()=>{
+  sender.disabled=anonymous.checked;
+  if(anonymous.checked)sender.value="";
+});
+
+function toast(text){
+  const t=document.getElementById("toast");t.textContent=text;t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"),2300);
+}
+
+async function makeBlob(){
+  if(!window.html2canvas) throw new Error("تعذر تحميل أداة إنشاء الصورة");
+  const canvas=await html2canvas(document.getElementById("card"),{
+    scale:2,backgroundColor:null,useCORS:true,logging:false
+  });
+  return await new Promise(resolve=>canvas.toBlob(resolve,"image/png",1));
+}
+
+document.getElementById("createBtn").addEventListener("click",()=>{
+  const from=anonymous.checked?"زميل/ة يقدّرك 🌷":sender.value.trim();
+  const to=document.getElementById("recipient").value.trim();
+  const msg=message.value.trim();
+
+  if(!anonymous.checked&&!from){toast("اكتب اسم المرسل أو اختر إرسال بدون اسم");return}
+  if(!to){toast("اكتب اسم الزميل أو الزميلة");return}
+  if(!msg){toast("اكتب رسالة التقدير");return}
+
+  document.getElementById("cardEmoji").textContent=selected;
+  document.getElementById("cardFrom").textContent=from;
+  document.getElementById("cardTo").textContent=to;
+  document.getElementById("cardMessage").textContent=msg;
+
+  const preview=document.getElementById("preview");
+  document.getElementById("formSection").style.display="none";
+  preview.classList.add("show");
+  preview.scrollIntoView({behavior:"smooth",block:"start"});
+  cardBlob=null;
+});
+
+document.getElementById("downloadBtn").addEventListener("click",async()=>{
+  try{
+    const blob=cardBlob||await makeBlob();
+    cardBlob=blob;
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");
+    a.href=url;a.download="بطاقة-مرر-الابتسامة.png";
+    document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+  }catch(e){toast("تعذر حفظ البطاقة، جرّبي مرة أخرى")}
+});
+
+document.getElementById("shareBtn").addEventListener("click",async()=>{
+  try{
+    const blob=cardBlob||await makeBlob();
+    cardBlob=blob;
+    const file=new File([blob],"بطاقة-مرر-الابتسامة.png",{type:"image/png"});
+    if(navigator.share && (!navigator.canShare || navigator.canShare({files:[file]}))){
+      await navigator.share({files:[file],title:"مرّر الابتسامة",text:"بطاقة تقدير لك 😊"});
+    }else{
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement("a");
+      a.href=url;a.download="بطاقة-مرر-الابتسامة.png";
+      document.body.appendChild(a);a.click();a.remove();
+      setTimeout(()=>URL.revokeObjectURL(url),1000);
+      toast("تم حفظ البطاقة؛ افتحي واتساب وأرسلي الصورة");
+    }
+  }catch(e){
+    if(e.name!=="AbortError")toast("تعذر فتح المشاركة، احفظي البطاقة ثم أرسليها عبر واتساب");
+  }
+});
+
+document.getElementById("newCardBtn").addEventListener("click",()=>{
+  document.getElementById("preview").classList.remove("show");
+  document.getElementById("formSection").style.display="block";
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+</script>
+</body>
+</html>
